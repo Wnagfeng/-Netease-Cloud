@@ -10,6 +10,7 @@ module.exports = {
       options: {
         lessLoaderOptions: {
           lessOptions: {
+            // modifyVars: { '@primary-color': '#1DA57A' },
             javascriptEnabled: true
           }
         }
@@ -18,7 +19,8 @@ module.exports = {
   ],
   webpack: {
     alias: {
-      '@': resolve('src')
+      '@': resolve('src'),
+      components: resolve('src/components')
     }
   }
 }

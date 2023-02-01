@@ -1,6 +1,7 @@
 import React, { memo, Suspense } from 'react'
 import type { FC, ReactNode } from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import NavBar from './c-pns/nav-bar'
 
 interface IPerson {
   children?: ReactNode
@@ -9,16 +10,13 @@ interface IPerson {
 const Discover: FC<IPerson> = () => {
   return (
     <div>
-      <div>
-        <Link to="/discover/recommend">推荐</Link>
-        <Link to="/discover/ranking">排行榜</Link>
-        <Link to="/discover/songlist">歌单</Link>
-        <Link to="/discover/djradio">主播电台</Link>
-        <Link to="/discover/artist">歌手</Link>
-        <Link to="/discover/album">新碟上架</Link>
-      </div>
+      <NavBar />
       <Suspense fallback="loading">
         <Outlet />
+        {/* 嵌套路由，可以保证子路由共享父路由的界面而不会覆盖。
+        为此React提供了Outlet组件，将其用于父组件中可以为子路由的元素占位，
+        并最终渲染子路由的元素。
+          Outlet渲染一个子路由的元素 */}
       </Suspense>
     </div>
   )

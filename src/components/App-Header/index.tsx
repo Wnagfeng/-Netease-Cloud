@@ -2,6 +2,8 @@ import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
 import { NavLink } from 'react-router-dom'
 import headerTitles from '@/assets/data/Header-title.json'
+import { Input } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
 import { AppHeaderWrapper, HeaderLeft, HeaderRight } from './style'
 interface IPerson {
   children?: ReactNode
@@ -47,7 +49,15 @@ const AppHeader: FC<IPerson> = () => {
             })}
           </div>
         </HeaderLeft>
-        <HeaderRight></HeaderRight>
+        <HeaderRight>
+          <Input
+            className="search"
+            placeholder="音乐/视频/电台/用户"
+            prefix={<UserOutlined />}
+          />
+          <div className="user-center">创作者中心</div>
+          <div className="user-login">登录</div>
+        </HeaderRight>
       </div>
       <div className="divider"></div>
     </AppHeaderWrapper>

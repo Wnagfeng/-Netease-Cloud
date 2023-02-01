@@ -6,6 +6,7 @@ import React, { memo, Suspense } from 'react'
 import type { FC, ReactNode } from 'react'
 import AppHeader from './components/App-Header'
 import AppFooter from './components/App-Footer'
+import { Button } from 'antd'
 // import { changeMessageAction } from './store/modules/counter'
 interface IPerson {
   children?: ReactNode
@@ -17,7 +18,6 @@ const App: FC<IPerson> = () => {
       <Suspense fallback="loading">
         <div>{useRoutes(routes)}</div>
       </Suspense>
-      <AppFooter />
     </div>
   )
 }
