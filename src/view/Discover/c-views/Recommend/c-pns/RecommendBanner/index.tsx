@@ -40,6 +40,14 @@ const RecommendBanner: FC<IPerson> = () => {
     setCurrentIndex(num)
     console.log(currentIndex)
   }
+  // 处理btos的展示延迟函数
+  // 直接你妈一个判断解决问题
+  function backgroundBeforHandlClick() {
+    if (currentIndex !== 0) {
+      setCurrentIndex(-1)
+    }
+  }
+
   // 获取一下背景
   let bgImageUrl
   if (currentIndex >= 0 && banners.length > 0) {
@@ -61,6 +69,7 @@ const RecommendBanner: FC<IPerson> = () => {
             ref={bannerRef}
             effect="fade"
             afterChange={backgroundHandlClick}
+            beforeChange={backgroundBeforHandlClick}
             dots={false}
           >
             {banners?.map((item) => {
