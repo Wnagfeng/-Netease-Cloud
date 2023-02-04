@@ -1,6 +1,9 @@
 import React, { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
-import { fetchRecommendDataAction } from './store/RecommendStore'
+import {
+  fetchRecommendDataAction,
+  fetchRankingDataAction
+} from './store/RecommendStore'
 import { useAppDispatch } from '@/store'
 import {
   RecommendBannerSectionWrapper,
@@ -11,6 +14,7 @@ import {
 import RecommendBanner from './c-pns/RecommendBanner'
 import HotRecommednHeade from './c-pns/HotRecommendHeader/index'
 import NewAlbum from './c-pns/NewAlbum/index'
+import TopRanking from './c-pns/Top-ranking/index'
 interface IPerson {
   children?: ReactNode
 }
@@ -20,6 +24,7 @@ const Recommend: FC<IPerson> = () => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(fetchRecommendDataAction())
+    dispatch(fetchRankingDataAction())
   }, [])
 
   return (
@@ -30,6 +35,7 @@ const Recommend: FC<IPerson> = () => {
         <RecommendBannerLeftWrapper>
           <HotRecommednHeade />
           <NewAlbum />
+          <TopRanking />
         </RecommendBannerLeftWrapper>
         <RecommendBannerRightWrapper>Right</RecommendBannerRightWrapper>
       </RecommendBannerSectionWrapper>

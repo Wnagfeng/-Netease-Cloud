@@ -32,6 +32,12 @@ export const AlbumWrapper = styled.div`
     .banner {
       overflow: hidden;
       /* flex: 1; */
+      /* 妈的antd的轮播图组件自动给他下面的直接子元素加上了     display: block; 那么我就只能加上important*/
+      .page {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+      }
     }
   }
 `

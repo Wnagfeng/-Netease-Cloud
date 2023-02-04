@@ -10,7 +10,7 @@ import { useAppSelector } from '@/store'
 import { shallowEqual } from 'react-redux'
 import { Carousel } from 'antd'
 import classNames from 'classnames'
-
+import { isEmptyObject } from '@/utils/is-empty-object'
 interface IPerson {
   children?: ReactNode
 }
@@ -47,7 +47,6 @@ const RecommendBanner: FC<IPerson> = () => {
       setCurrentIndex(-1)
     }
   }
-
   // 获取一下背景
   let bgImageUrl
   if (currentIndex >= 0 && banners.length > 0) {
@@ -64,26 +63,28 @@ const RecommendBanner: FC<IPerson> = () => {
         {/* 在banner中有两个组件一个是轮播图一个是下载客户端的图片他们两个同时居中 */}
         {/* 左边轮播图右边图片 */}
         <RecommendBannerLeftWrapper>
-          <Carousel
-            autoplay
-            ref={bannerRef}
-            effect="fade"
-            afterChange={backgroundHandlClick}
-            beforeChange={backgroundBeforHandlClick}
-            dots={false}
-          >
-            {banners?.map((item) => {
-              return (
-                <div className="banner-item" key={item.imageUrl}>
-                  <img
-                    src={item.imageUrl}
-                    alt={item.typeTitle}
-                    className="image"
-                  />
-                </div>
-              )
-            })}
-          </Carousel>
+          {isEmptyObject(banners) && (
+            <Carousel
+              autoplay
+              ref={bannerRef}
+              effect="fade"
+              afterChange={backgroundHandlClick}
+              beforeChange={backgroundBeforHandlClick}
+              dots={false}
+            >
+              {banners?.map((item) => {
+                return (
+                  <div className="banner-item" key={item.imageUrl}>
+                    <img
+                      src={item.imageUrl}
+                      alt={item.typeTitle}
+                      className="image"
+                    />
+                  </div>
+                )
+              })}
+            </Carousel>
+          )}
           <ul className="dots">
             {banners.map((item, index) => {
               return (
