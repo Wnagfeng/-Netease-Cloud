@@ -25,3 +25,13 @@ export function getPlayListDetail(id: number) {
     }
   })
 }
+
+export function getSettleSingers(cat: number, limit: number) {
+  return hyRequest.get({
+    url: '/artist/list',
+    params: {
+      cat,
+      limit
+    }
+  })
+}

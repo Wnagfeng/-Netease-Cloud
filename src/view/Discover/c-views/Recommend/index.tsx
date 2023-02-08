@@ -15,6 +15,9 @@ import RecommendBanner from './c-pns/RecommendBanner'
 import HotRecommednHeade from './c-pns/HotRecommendHeader/index'
 import NewAlbum from './c-pns/NewAlbum/index'
 import TopRanking from './c-pns/Top-ranking/index'
+import UserLogin from './c-pns/UserLogin'
+import SettleSinger from './c-pns/SettleSinger'
+import HotAnchor from './c-pns/HotAnchor'
 interface IPerson {
   children?: ReactNode
 }
@@ -37,7 +40,11 @@ const Recommend: FC<IPerson> = () => {
           <NewAlbum />
           <TopRanking />
         </RecommendBannerLeftWrapper>
-        <RecommendBannerRightWrapper>Right</RecommendBannerRightWrapper>
+        <RecommendBannerRightWrapper>
+          <UserLogin />
+          <SettleSinger />
+          <HotAnchor />
+        </RecommendBannerRightWrapper>
       </RecommendBannerSectionWrapper>
     </RecommendBannerWrapper>
   )

@@ -18,6 +18,7 @@ interface IPerson {
 const RecommendBanner: FC<IPerson> = () => {
   /** 定义内部的数据 */
   const [currentIndex, setCurrentIndex] = useState(0)
+  // 定义一个背景索引
   // 定义保存组件的容器
   const bannerRef = useRef<ElementRef<typeof Carousel>>(null)
   /** redux中获取数据 */
@@ -99,7 +100,10 @@ const RecommendBanner: FC<IPerson> = () => {
             })}
           </ul>
         </RecommendBannerLeftWrapper>
-        <RecommendBannerRightWrapper></RecommendBannerRightWrapper>
+        <RecommendBannerRightWrapper>
+          <a href="https://music.163.com/#/download"></a>
+          <p className="title">PC 安卓 iPhone WP iPad Mac 六大客户端</p>
+        </RecommendBannerRightWrapper>
         <RecommendBannerControlWrapper>
           <button
             className="btn left"

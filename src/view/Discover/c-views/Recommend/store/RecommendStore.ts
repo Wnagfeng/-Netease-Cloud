@@ -2,7 +2,8 @@ import {
   getBanner,
   getHotRecommend,
   getNewAlbum,
-  getPlayListDetail
+  getPlayListDetail,
+  getSettleSingers
 } from '../service/RecommendService'
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
@@ -24,6 +25,9 @@ export const fetchRecommendDataAction = createAsyncThunk(
     // 新碟上架数据
     getNewAlbum().then((res: any) => {
       dispatch(changeNewAlbumsAction(res.albums))
+    })
+    getSettleSingers(5001, 5).then((res: any) => {
+      dispatch(changeSettleSingersAction(res.artists))
     })
   }
 )
@@ -57,13 +61,15 @@ interface RecommendState {
   hotrecommend: any[]
   newAlbums: any[]
   Ranking: any[]
+  SettleSingers: any[]
 }
 
 const initialState: RecommendState = {
   banners: [],
   hotrecommend: [],
   newAlbums: [],
-  Ranking: []
+  Ranking: [],
+  SettleSingers: []
 }
 const recommendSlice = createSlice({
   name: 'recommden',
@@ -80,6 +86,9 @@ const recommendSlice = createSlice({
     },
     changeRankingListAction(state, { payload }) {
       state.Ranking = payload
+    },
+    changeSettleSingersAction(state, { payload }) {
+      state.SettleSingers = payload
     }
   }
 })
@@ -89,5 +98,6 @@ export const {
   changeBannerAction,
   changeHotRecommedAction,
   changeNewAlbumsAction,
-  changeRankingListAction
+  changeRankingListAction,
+  changeSettleSingersAction
 } = recommendSlice.actions

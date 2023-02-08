@@ -3,9 +3,9 @@ export const RecommendBannerWrapper = styled.div`
   .banner {
     display: flex;
     height: 270px;
-    background-color: red;
     position: relative;
   }
+  background-color: #fff6e9 !important;
 `
 export const RecommendBannerLeftWrapper = styled.div`
   position: relative;
@@ -42,14 +42,35 @@ export const RecommendBannerLeftWrapper = styled.div`
     }
   }
 `
-export const RecommendBannerRightWrapper = styled.a.attrs({
-  // 使用attrs方法直接为样式组件添加属性。之后仍是正常的添加其他属性
-  href: 'https://music.163.com/#/download',
-  target: '_blank'
-})`
-  width: 250px;
-  height: 270px;
-  background: url(${require('@/assets/img/download.png')});
+// export const RecommendBannerRightWrapper = styled.a.attrs({
+//   // 使用attrs方法直接为样式组件添加属性。之后仍是正常的添加其他属性
+//   href: 'https://music.163.com/#/download',
+//   target: '_blank'
+// })`
+//   width: 250px;
+//   height: 270px;
+//   background: url(${require('@/assets/img/download.png')});
+// `
+export const RecommendBannerRightWrapper = styled.div`
+  width: 254px;
+  height: 285px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a {
+    width: 250px;
+    height: 270px;
+    display: block;
+    background: url(${require('@/assets/img/download.png')});
+  }
+  .title {
+    /* margin: 10px auto; */
+    text-align: center;
+    color: #8d8d8d;
+    margin-top: -20px;
+    /* background-color: #fff; */
+    /* color: #fff; */
+  }
 `
 export const RecommendBannerControlWrapper = styled.div`
   /* 先让他整体开启定位让他居中一下 */

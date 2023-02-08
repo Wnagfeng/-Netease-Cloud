@@ -16,7 +16,7 @@ export const TopRankingItemWrapper = styled.div`
         font-weight: 700;
       }
       .btn {
-        display: inline-block;
+        /* display: inline-block; */
         text-indent: -9999px;
         width: 22px;
         height: 22px;
