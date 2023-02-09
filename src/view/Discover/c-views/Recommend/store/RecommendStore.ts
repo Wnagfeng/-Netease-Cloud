@@ -51,7 +51,9 @@ export const fetchRankingDataAction = createAsyncThunk(
     }
     // 它可以帮助我们一次，并行处理多个promise, 然后将结果聚合到一个数组里边，这是聚合结果，不是说返回结果哦
     Promise.all(promise).then((res) => {
-      const rankings = res.map((item) => item.playlist)
+      const rankings = res
+        .filter((item) => item.playlist)
+        .map((item) => item.playlist)
       dispatch(changeRankingListAction(rankings))
     })
   }

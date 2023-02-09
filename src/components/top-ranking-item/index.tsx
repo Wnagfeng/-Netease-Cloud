@@ -2,14 +2,21 @@ import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
 import { TopRankingItemWrapper } from './style'
 import { getImageSize } from '@/utils/handle-img-utl'
+import { useAppDispatch } from '@/store'
+import { fetchSongListDataAction } from '@/view/player/store/player'
 interface IPerson {
   children?: ReactNode
   Data: any
 }
 
 const TopRankingItem: FC<IPerson> = (props) => {
+  // 创建一个播放歌曲的逻辑
+  const dispatch = useAppDispatch()
+  function handlplayClick(id: number) {
+    dispatch(fetchSongListDataAction(id))
+    // console.log(id)
+  }
   const { Data } = props
-  console.log(123, Data)
   return (
     <TopRankingItemWrapper>
       <div className="header">
@@ -34,7 +41,13 @@ const TopRankingItem: FC<IPerson> = (props) => {
                 <span className="name text-nowrap">{item.name}</span>
                 <div className="operate">
                   {/* 图标字体 */}
-                  <button className="btn sprite_02 play"></button>
+                  <button
+                    className="btn sprite_02 play"
+                    onClick={() => {
+                      handlplayClick(item.id)
+                      // alert(1)
+                    }}
+                  ></button>
                   <button className="btn sprite_icon2 addto"></button>
                   <button className="btn sprite_02 favor"></button>
                 </div>

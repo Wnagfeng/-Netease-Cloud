@@ -20,7 +20,6 @@ const HotRecommednHeader: FC<IPerson> = () => {
       NewAlbums: state.recommend.newAlbums
     }
   })
-  console.log(NewAlbums)
   return (
     <HotRecommendHeaderWrapper>
       <SectionHeaderV1

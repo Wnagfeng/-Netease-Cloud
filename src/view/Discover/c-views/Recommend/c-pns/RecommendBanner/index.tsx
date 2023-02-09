@@ -39,7 +39,6 @@ const RecommendBanner: FC<IPerson> = () => {
   // 处理获取背景的逻辑
   function backgroundHandlClick(num: number) {
     setCurrentIndex(num)
-    console.log(currentIndex)
   }
   // 处理btos的展示延迟函数
   // 直接你妈一个判断解决问题

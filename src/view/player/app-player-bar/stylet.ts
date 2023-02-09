@@ -119,8 +119,10 @@ export const BarPlayInfo = styled.div`
     }
   }
 `
-
-export const BarOperator = styled.div`
+interface IBarOperator {
+  payMode: number
+}
+export const BarOperator = styled.div<IBarOperator>`
   display: flex;
   align-items: center;
   .left {
@@ -157,7 +159,16 @@ export const BarOperator = styled.div`
     .loop {
       margin-right: 5px;
       margin-top: 5px;
-      background-position: -6px -347px;
+      background-position: ${(props) => {
+        switch (props.payMode) {
+          case 1:
+            return '-66px -248px'
+          case 2:
+            return '-66px -344px'
+          default:
+            return '-3px -344px'
+        }
+      }};
     }
     .playlist {
       padding-left: 18px;

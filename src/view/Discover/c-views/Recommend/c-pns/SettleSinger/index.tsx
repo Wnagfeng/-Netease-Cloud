@@ -14,7 +14,6 @@ const SettleSinger: FC<IPerson> = () => {
       settleSingers: state.recommend.SettleSingers
     }
   })
-  console.log(1111, settleSingers)
   return (
     <SettleSingerWrapper>
       <SectionHeaderV2 title="入驻歌手" morePath="/discover/artist" />
