@@ -15,8 +15,6 @@ import { formatTime } from '@/utils/handel-play-time'
 import {
   changelyricIndexAction,
   changepayModeAction,
-  changepaySongIndexAction,
-  changepaySongListAction,
   changePlaySongAction
 } from '../store/player'
 
@@ -58,16 +56,13 @@ const Player: FC<IPerson> = () => {
     // 如果audioref不在我们就返回空的东西如果在我们在执行播放逻辑
     if (!audioRef.current) return
     audioRef.current.src = getPlayerUrl(currentSong?.id) //根据id拼接请求src获取播放数据
-    console.log(1111, currentSong)
     // 监听一下播放是否成功
     audioRef.current
       .play()
       .then(() => {
-        console.log('播放成功了')
         setIsplaying(true)
       })
       .catch(() => {
-        console.log('播放失败')
         setIsplaying(false)
       })
     // 设置一下总时间
@@ -109,7 +104,6 @@ const Player: FC<IPerson> = () => {
     // 如果当前的index等于我们设置过去的index我们不要让他匹配了
     if (lyricIndex === index || index === -1) return
     dispatch(changelyricIndexAction(index))
-    console.log(Lyrics[index]?.content)
     const currentLyric = Lyrics[index]
     message.open({
       content: currentLyric.content,

@@ -43,7 +43,6 @@ export const fetchSongListDataAction = createAsyncThunk<
       dispatch(changepaySongIndexAction(newPlaySongList.length - 1)) //把他加到最后
     })
   }
-  console.log(findIndex)
 })
 
 export const changePlaySongAction = createAsyncThunk<

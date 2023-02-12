@@ -1,3 +1,4 @@
+// 头部导航栏内容数据
 export const headerLinks = [
   {
     title: '发现音乐',
@@ -24,7 +25,7 @@ export const headerLinks = [
     link: 'https://music.163.com/#/download'
   }
 ]
-
+// 底部超链接
 export const footerLinks = [
   {
     title: '服务条款',
@@ -47,18 +48,30 @@ export const footerLinks = [
     link: '#'
   }
 ]
-
+// 底部点击以后进行的跳转
 export const footerImages = [
   {
+    title: '用户认证',
     link: 'https://music.163.com/st/userbasic#/auth'
   },
   {
+    title: '网易云音乐人',
     link: 'https://music.163.com/recruit'
   },
   {
-    link: 'https://music.163.com/web/reward'
+    title: '赞赏',
+    link: 'https://music.163.com/st/userbasic#/auth'
   },
   {
+    title: '创作者计划',
+    link: 'https://music.163.com/uservideo#/plan'
+  },
+  {
+    title: '创作者计划',
+    link: 'https://music.163.com/uservideo#/plan'
+  },
+  {
+    title: '创作者计划',
     link: 'https://music.163.com/uservideo#/plan'
   }
 ]
